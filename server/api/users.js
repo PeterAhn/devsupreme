@@ -1,7 +1,8 @@
 var express  = require('express');
 var router   = express.Router();
-var User     = require('../models/user');
+
 var util     = require('../util');
+var User     = require('../models/User');
 
 // index
 router.get('/', util.isLoggedin, function(req,res,next){
