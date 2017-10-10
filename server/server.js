@@ -28,6 +28,7 @@ app.use(function (req, res, next) {
 // API
 app.use('/api/users', require('./api/users'));
 app.use('/api/auth', require('./api/auth'));
+app.use('/api/posts', require('./api/posts'));
 
 // Angular
 app.use(express.static(path.resolve(__dirname, '../dist'))); //1

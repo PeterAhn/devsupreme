@@ -1,0 +1,43 @@
+<div class="page page-posts">
+  
+  <form
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+    class="post-form form-horizontal"
+  >
+    <div class="contentBox">
+      <h3 class="contentBoxTop">New Post</h3>
+      <fieldset>
+        <div class="form-group" [ngClass]="{'has-error': formErrors.title}">
+          <label for="title" class="col-sm-3 control-label">Title*</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" formControlName="title" id="title">
+            <span *ngIf="formErrors.title" class="help-block">{{formErrors.title}}</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="author" class="col-sm-3 control-label">Author</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" formControlName="author" id="author" value="{{user.username}}">
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': formErrors.body}">
+          <label for="body" class="col-sm-3 control-label">body</label>
+          <div class="col-sm-9">
+            <textarea class="form-control" formControlName="body" id="body"></textarea>
+            <span *ngIf="formErrors.body" class="help-block">{{formErrors.body}}</span>
+          </div>
+        </div>        
+        <p>
+          <small>*Required</small>
+        </p>
+        <div *ngIf="errorResponse?.message" class="alert alert-danger">
+          {{errorResponse?.message}}
+        </div>
+      </fieldset>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </form>
+</div>

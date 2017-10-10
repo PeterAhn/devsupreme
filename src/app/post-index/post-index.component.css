@@ -1,0 +1,33 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #ccc;
+  }
+  table colgroup .date {
+    width: 100px;
+  }
+  table colgroup .author {
+    width: 110px;
+  }
+  table tr{
+    border-bottom: 1px solid #ccc;
+  }
+  table td, th{
+    padding: 7px 15px;
+  }
+  table thead tr{
+    background-color: #F5F5F5;
+  }
+  table tbody tr:hover td:first-child{
+    cursor:pointer;
+    text-decoration: underline;
+  }
+  table tbody td{
+      cursor:pointer;
+  }
+  table tbody tr:nth-child(odd){
+    background-color: #F4FFFF;
+  }
+  table tbody td+td{
+    text-align: center;
+  }

@@ -8,6 +8,8 @@ import { Error404Component } from './error404/error404.component';
 import { LoginComponent } from './login/login.component';
 import { UserNewComponent } from './user-new/user-new.component';
 import { UserIndexComponent } from './user-index/user-index.component';
+import { PostIndexComponent } from './post-index/post-index.component';
+import { PostNewComponent } from './post-new/post-new.component';
 
 const routes: Routes = [
   { path: '',  component: WelcomeComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
       { path: '', component: UserIndexComponent },
     ]
   },
+  { path: 'posts',  component: PostIndexComponent },
+  { path: 'posts/new',  component: PostNewComponent },
   { path: '**', component: Error404Component },
 ];
 

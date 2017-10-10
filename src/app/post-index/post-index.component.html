@@ -1,0 +1,28 @@
+<div class="page page-posts">  
+    <div class="contentBox">
+      <h3 class="contentBoxTop">Posts</h3>     
+      <button class="float_left" onclick="location.href='/posts/new'">New</button>
+      <table>
+        <colgroup>
+          <col class="title"/>
+          <col class="date"/>
+          <col class="author"/>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts">
+              <td><a [routerLink]="['/','posts',post._id]">{{post.title}}</a></td>
+              <td>{{post.createdAt | date:'y/MM/dd hh:mm:ss'}}</td>
+              <td>{{post.author.username}}</td>
+            </tr>         
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

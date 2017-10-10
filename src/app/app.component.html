@@ -18,6 +18,11 @@
                 <a [routerLink]="['/','users']">Users</a>
               </li>
             </ul>
+            <ul class="nav navbar-nav">
+              <li [routerLinkActive]="['active']">
+                <a [routerLink]="['/','posts']">Posts</a>
+              </li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
               <li *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']"> <!-- 1 -->
                 <a [routerLink]="['/','login']">Login</a>
