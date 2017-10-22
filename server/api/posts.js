@@ -11,7 +11,8 @@ router.get('/', function(req,res){
     var skip = (page-1) * limit;
     var maxPage = Math.ceil(count/limit);
 
-    Post.find({}).populate("author").sort('-createAt').skip(skip).limit(limit)
+    Post.find({}).populate("author").sort('-createAt')
+    // Post.find({}).populate("author").sort('-createAt').skip(skip).limit(limit)
     .exec(function(err,posts){
         res.json(err||!posts? util.successFalse(err): util.successTrue({posts:posts, page:page, maxPage:maxPage}));
     });
@@ -22,7 +23,7 @@ router.get('/', function(req,res){
 //   res.render("posts/new", {user:req.user});
 // }); // new
 
-router.post('/', function(req,res){
+router.post('/', util.isLoggedin, function(req,res){
   var newPost = new Post(req.body);
   console.log(req.body);
   newPost.save(function(err,post){
@@ -37,12 +38,12 @@ router.post('/', function(req,res){
   // });
 }); // create;
 
-// router.get('/:id', function(req,res){
-//   Post.findById(req.params.id).populate("author").exec(function(err,post){
-//     if(err) return res.json({success:false, message:err});
-//     res.render("posts/show", {post:post, page:req.query.page, user:req.user});
-//   });
-// }); // show
+router.get('/:id', function(req,res){
+  console.log('Request! from' + req.params.id);
+  Post.findById(req.params.id).populate("author").exec(function(err,post){
+    res.json(err||!post? util.successFalse(err): util.successTrue({post:post, page:req.query.page}));
+  });
+}); // show
 
 // router.get('/:id/edit', util.isLoggedin, function(req,res){
 //   Post.findById(req.params.id, function(err,post){

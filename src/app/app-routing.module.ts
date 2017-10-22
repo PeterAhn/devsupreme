@@ -10,6 +10,7 @@ import { UserNewComponent } from './user-new/user-new.component';
 import { UserIndexComponent } from './user-index/user-index.component';
 import { PostIndexComponent } from './post-index/post-index.component';
 import { PostNewComponent } from './post-new/post-new.component';
+import { PostViewComponent } from './post-view/post-view.component';
 
 const routes: Routes = [
   { path: '',  component: WelcomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   },
   { path: 'posts',  component: PostIndexComponent },
   { path: 'posts/new',  component: PostNewComponent },
+  { path: 'posts/:postId',  component: PostViewComponent },
   { path: '**', component: Error404Component },
 ];
 

@@ -16,13 +16,26 @@ db.on('error', function (err) {
 });
 
 // Middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
+
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'content-type, x-access-token');
-  next();
+  // Set to true if you need the website to include cookies in  requests
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // Check if preflight request
+  if (req.method === 'OPTIONS') {
+      res.status(200);
+      res.end();
+  }
+  else {
+      // Pass to next layer of middleware
+      next();
+  }
+  // next();
 });
 
 // API

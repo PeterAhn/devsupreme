@@ -1,6 +1,54 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a [routerLink]="['/']" class="navbar-link">Home</a>                  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/','posts']">My Improvements</a>
+          </li>               
+          <li class="nav-item" *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']">
+            <a [routerLink]="['/','login']">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']">
+            <a [routerLink]="['/','users','new']">Sign Up</a>
+          </li>
+          <li class="nav-item" *ngIf="authService.isLoggedIn()">  
+            <a (click)="authService.logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header> -->
+
+
 <div class="container-fluid">
     <div class="row">
+      
       <nav class="navbar navbar-default navbar-custom">
         <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
           <div class="navbar-header">
@@ -24,19 +72,20 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']"> <!-- 1 -->
+              <li *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']"> 
                 <a [routerLink]="['/','login']">Login</a>
               </li>
-              <li *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']"> <!-- 1 -->
+              <li *ngIf="!authService.isLoggedIn()" [routerLinkActive]="['active']">
                 <a [routerLink]="['/','users','new']">Sign Up</a>
               </li>
-              <li *ngIf="authService.isLoggedIn()">  <!-- 1 -->
+              <li *ngIf="authService.isLoggedIn()">  
                 <a (click)="authService.logout()">Logout</a>
               </li>
             </ul>
           </div>
         </div>
-      </nav>
+      </nav>     
+
       <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <router-outlet></router-outlet>
       </div>

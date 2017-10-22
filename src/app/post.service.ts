@@ -43,6 +43,16 @@ export class PostService {
               .catch(this.utilService.handleApiError);
   }
 
+  get(postId: string): Promise<any> {
+    return this.http.get<ApiResponse>(`${this.apiBaseUrl}/${postId}`)
+              .toPromise()
+              .then(this.utilService.checkSuccess)
+              .then(response => {
+                return response.data as any
+              })
+              .catch(this.utilService.handleApiError);
+  }
+
   setAuthor(post: Post): Post {
     this.authService.me().then(user => {
       post.author = user._id;

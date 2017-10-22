@@ -10,6 +10,8 @@ import { PostService } from '../post.service';
 
 import { User } from '../user';
 
+declare var $: any;
+
 @Component({
   selector: 'app-post-new',
   templateUrl: './post-new.component.html',
@@ -37,7 +39,7 @@ export class PostNewComponent implements OnInit {
   buildForm(): void {
     this.form = this.formBuilder.group({
       title:["", [Validators.required]],
-      body:["", [Validators.required]],
+      body:["", ],
       author:[ { 
         value: '',
         disabled: true
@@ -70,9 +72,13 @@ export class PostNewComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('#body').summernote();
   }
 
   submit() {
+    this.form.value.body = $('#body').summernote('code');
+
+    console.log(this.form.value.body);
     this.utilService.makeFormDirtyAndUpdateErrors(this.form, this.formErrors, this.formErrorMessages);
     if(this.form.valid){
       this.form.value.author = this.user._id;
