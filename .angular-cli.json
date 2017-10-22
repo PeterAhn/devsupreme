@@ -24,11 +24,12 @@
         "../node_modules/codemirror/lib/codemirror.css",
         "../node_modules/summernote/dist/summernote.css",
         "../node_modules/font-awesome/css/font-awesome.css",
-        "assets/css/clean-blog.min.css"
+        "assets/css/clean-blog.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/summernote/dist/summernote.min.js"
+        "../node_modules/summernote/dist/summernote.min.js",
+        "assets/js/clean-blog.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
