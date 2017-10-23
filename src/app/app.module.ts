@@ -5,14 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 
 import { HttpModule } from '@angular/http';
 
-import $ from 'jquery/dist/jquery';
-
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'summernote/dist/summernote.min.js';
- 
-
-import {SummernoteComponent} from 'ng2-alt-summernote';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 import { UtilService } from './util.service';
@@ -55,8 +47,7 @@ export class EscapeHtmlPipe implements PipeTransform {
     UserIndexComponent,
     PostIndexComponent,
     PostNewComponent, 
-    PostViewComponent,
-    SummernoteComponent,    
+    PostViewComponent,    
   ],
   imports: [
     BrowserModule,
